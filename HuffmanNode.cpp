@@ -1,9 +1,3 @@
-/*Marisa Reddy
- *mpr2zp
- *23 Novemeber 2013
- *Filename: HuffmanNode.cpp
- */
-
 #include "HuffmanNode.h"
 #include <iostream>
 

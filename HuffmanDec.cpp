@@ -1,9 +1,3 @@
-/*Mairsa Reddy
- *mpr2zp
- *11/27/13
- *Filename: HuffmanDec.cpp
- */
-
 #include "Heap.h"
 #include "HuffmanNode.h"
 #include <vector>
@@ -36,7 +30,6 @@ int main (int argc, char **argv) {
       continue;
     // read in second character on line
     char second = file.get();
-    // did we encounter the separator?
     if ( (first == '-') && (second == '-') ) {
       // read in the rest of the line
       file.getline(buffer, 255, '\n');
@@ -45,8 +38,6 @@ int main (int argc, char **argv) {
     // read in the prefix code
     file.getline(buffer, 255, '\n');
     codes.insert(make_pair(buffer, first));
-    // cout << "character '" << first << "' has prefix code '" 
-    // << buffer << "'" << endl;
   }
   //create tree
   HuffmanNode * root = new HuffmanNode;
@@ -65,7 +56,6 @@ int main (int argc, char **argv) {
     if (m.decode(tree, bits)) {
 	bits="";
       }
-    // cout << "read in bit '" << bit << "'" << endl;
   }
   cout << endl;
  

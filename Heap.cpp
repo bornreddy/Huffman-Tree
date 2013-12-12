@@ -1,8 +1,3 @@
-/*Marisa Reddy
- *mpr2zp
- *23 November 2013
- *Filename: Heap.cpp
- */
 #include <algorithm>
 #include<map>
 #include "Heap.h"
@@ -37,8 +32,6 @@ void Heap::insertNode (HuffmanNode * node) {
   int hole = ++count;
   for( ; hole > 1 && node->p < v[hole /2]->p; 
        hole /= 2) {
-    // if x < array[hole/2] move 
-    // item in array[hole] “down”
     v[hole] = v[hole/2];
   }
   v[hole] = node;
@@ -50,7 +43,6 @@ void Heap::insert(char c, int p) {
 }
 
 void Heap::printHeap() {
-  // cout << "heap is as follows" << endl;
   for (int i = 1; i < count+1; i++) {
     cout << v[i]->getP() << endl;
   }  
@@ -73,11 +65,9 @@ void Heap::percolateDown( int hole )
 
   for( ; hole * 2 <= count; hole = child )
     {
-      /* Find smaller child */
       child = hole * 2;
       if (child != count && v[child+1]->p<v[child]->p)
 	child++;
-      /* Percolate one level */
       if( tmp->p > v[child]->p )
 	v[ hole ] = v[ child ];
       else
@@ -92,22 +82,13 @@ HuffmanNode* Heap::huffmanify() {
   while (count != 1) {
     HuffmanNode * node = new HuffmanNode;
     HuffmanNode * a = findMin();
-    //cout << "before loop" << endl;
-    //printHeap();
     deleteMin();
     HuffmanNode * b = findMin();
     deleteMin();
     node->p = a->p + b->p;
-    //cout << "a: " << a->p << endl;
-    //cout << "b: " << b->p << endl;
-    //cout << "sum of a and b" << node->getP() << endl;
     node->left = a;
-    // cout << "node left" << node->left->getP() << endl;
     node ->right = b;
-    // cout << "node right" << node->right->getP() << endl;
     insertNode(node);
-    // cout << "after loop" << endl;
-    // printHeap();
   }
   return findMin();
 }
@@ -118,11 +99,9 @@ void Heap::codeGen(HuffmanNode * node, string n) {
     cout << node->getC() << " " << n << endl;
   }
   if (node->left != NULL) {
-    // cout << "going left" << endl;
     codeGen(node->left, n+"0");
   }
   if (node->right != NULL) {
-    //cout << "going right" << endl;
     codeGen(node->right, n+"1");
   }
 }
@@ -134,7 +113,6 @@ map<char, string> Heap::getCodes() {
 
 HuffmanNode * Heap::createHuffman(map<string, char> codes, string prefix, HuffmanNode * node) {
   if (codes.count(prefix)) {
-    //  cout << "prefix found: " << prefix << endl;
     node->c = codes[prefix];
     return node;
   }

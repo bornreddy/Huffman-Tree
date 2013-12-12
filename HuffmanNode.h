@@ -1,15 +1,9 @@
-/*Marisa Reddy
- *mpr2zp
- *23 November 2013
- *Filename: HuffmanNode.h
- */
-
 #ifndef HUFFMANNODE_H
 #define HUFFMANNODE_H
 
 class HuffmanNode {
  public:
-  HuffmanNode(); //default constructor
+  HuffmanNode(); 
   HuffmanNode( char character, int priority );
   ~HuffmanNode();
   int getP();

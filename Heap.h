@@ -1,9 +1,3 @@
-/*Marisa Reddy
- *mpr2zp
- *23 November 2013
- *Filename: heap.h
- */
-
 #ifndef HEAP_H
 #define HEAP_H
 

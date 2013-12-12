@@ -1,9 +1,3 @@
-/*Marisa Reddy
- *mpr2zp
- *23 November 2013
- *Filename: HuffmanEnc.cpp
- */
-
 #include "Heap.h"
 #include "HuffmanNode.h"
 #include <iostream>
@@ -36,18 +30,13 @@ int main( int argc, char **argv ){
     }
     freqs[g] = freqs[g]+1;
   }
-  //cout << "done making frequency map" << endl;
   for ( Mymap::iterator it = freqs.begin(); it != freqs.end(); ++it ) {
     m.insert(it->first, it->second);
-    // cout << "insert" << it->second << endl;
      }
    HuffmanNode * j = NULL;
    j = m.huffmanify();
-   //  cout << "j left " << j->getLeft() << endl;
-   //cout << "j right " << j->getRight() << endl;
    cout << "huffman created" << endl;
     m.codeGen(j,"");
-    //    cout << m.getCodes()['a'] << endl;
     cout << "----------------------------------------" << endl;
     int oldSize = 0;
     int newSize = 0;
